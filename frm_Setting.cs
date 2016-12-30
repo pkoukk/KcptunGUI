@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace LightKcpClient
 {
-    public partial class frm_Main : Form
+    public partial class frm_Setting : Form
     {
-        public frm_Main()
+        public frm_Setting()
         {
             InitializeComponent();
         }
