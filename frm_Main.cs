@@ -43,27 +43,39 @@ namespace LightKcpClient
 
         private void btnSetting_Click(object sender, EventArgs e)
         {
-            WriteToObject();
-            frm_Setting frmSetting = new frm_Setting(m_conf);
-            frmSetting.ShowDialog();
+            try
+            {
+                WriteToObject();
+                frm_Setting frmSetting = new frm_Setting(m_conf);
+                frmSetting.ShowDialog();
+            }
+            catch 
+            {
+            }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            WriteToObject();
-            StringBuilder sb = new StringBuilder();
-            foreach (var item in m_conf.GetType().GetProperties())
+            try
             {
-                sb.Append(string.Format("--{0} {1}", item.Name, item.GetValue(m_conf, null)));
+                WriteToObject();
+                StringBuilder sb = new StringBuilder();
+                foreach (var item in m_conf.GetType().GetProperties())
+                {
+                    sb.Append(string.Format("--{0} {1}", item.Name, item.GetValue(m_conf, null)));
+                }
+
+                string sParamer = sb.ToString();
+
+                Process p = new Process();
+                p.StartInfo.FileName = "client_windows_amd64.exe";
+                p.StartInfo.Arguments = sParamer;
+                p.StartInfo.CreateNoWindow = true;
+                p.Start();
             }
-
-            string sParamer = sb.ToString();
-
-            Process p = new Process();
-            p.StartInfo.FileName = "client_windows_amd64.exe";
-            p.StartInfo.Arguments = sParamer;
-            p.StartInfo.CreateNoWindow = true;
-            p.Start();
+            catch 
+            {
+            }
         }
 
         private void WriteToObject()
@@ -74,15 +86,21 @@ namespace LightKcpClient
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            foreach (var item in Process.GetProcesses("client_windows_amd64.exe"))
+            try
             {
-                try
+                foreach (var item in Process.GetProcesses("client_windows_amd64.exe"))
                 {
-                    item.Kill();
+                    try
+                    {
+                        item.Kill();
+                    }
+                    catch
+                    {
+                    }
                 }
-                catch 
-                {
-                }
+            }
+            catch 
+            {
             }
         }
     }

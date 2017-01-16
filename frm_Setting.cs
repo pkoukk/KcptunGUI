@@ -39,16 +39,24 @@ namespace LightKcpClient
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<ParamerItem> items = dataGridView1.DataSource as List<ParamerItem>;
-            Type t = m_config.GetType();
-            foreach (var item in items)
+            try
             {
-                PropertyInfo info = t.GetProperty(item.Name);
-                
-                info.SetValue(m_config, item.Vaule,null);
-            }
+                List<ParamerItem> items = dataGridView1.DataSource as List<ParamerItem>;
+                Type t = m_config.GetType();
+                foreach (var item in items)
+                {
+                    PropertyInfo info = t.GetProperty(item.Name);
+                    if (info.PropertyType.Equals(typeof(string)))
+                        info.SetValue(m_config, item.Vaule, null);
+                    else if (info.PropertyType.Equals(typeof(int)))
+                        info.SetValue(m_config, int.Parse(item.Vaule), null);
+                }
 
-            this.DialogResult = DialogResult.OK;
+                this.DialogResult = DialogResult.OK;
+            }
+            catch 
+            {
+            }
         }
     }
 
