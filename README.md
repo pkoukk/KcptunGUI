@@ -23,6 +23,6 @@ Copy the parameters from your server,such as
     "sockbuf": 4194304,
     "keepalive": 10
 }
-save it in a text file,name it config.json
-put config and client_windows_amd64.exe into this program floder
-run it,have fun
+save it in a text file,name it config.json.
+put config and client_windows_amd64.exe into this program floder.
+run it,have fun.
