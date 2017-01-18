@@ -50,6 +50,8 @@ namespace LightKcpClient
                         info.SetValue(m_config, item.Vaule, null);
                     else if (info.PropertyType.Equals(typeof(int)))
                         info.SetValue(m_config, int.Parse(item.Vaule), null);
+                    else if (info.PropertyType.Equals(typeof(bool)))
+                        info.SetValue(m_config,bool.Parse(item.Vaule), null);
                 }
 
                 this.DialogResult = DialogResult.OK;
@@ -123,11 +125,11 @@ namespace LightKcpClient
         /// <summary>
         /// 
         /// </summary>
-        public string nocomp { get; set; }
+        public bool nocomp { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string acknodelay { get; set; }
+        public bool acknodelay { get; set; }
         /// <summary>
         /// 
         /// </summary>

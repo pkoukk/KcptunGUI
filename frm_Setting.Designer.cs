@@ -62,9 +62,11 @@
             this.ClientSize = new System.Drawing.Size(364, 288);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frm_Setting";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frm_Setting";
             this.Load += new System.EventHandler(this.frm_Setting_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

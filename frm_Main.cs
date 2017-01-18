@@ -62,7 +62,15 @@ namespace LightKcpClient
                 StringBuilder sb = new StringBuilder();
                 foreach (var item in m_conf.GetType().GetProperties())
                 {
-                    sb.Append(string.Format("--{0} {1}", item.Name, item.GetValue(m_conf, null)));
+                    if (item.Name == "key")
+                        sb.Append(string.Format("-{0} \"{1}\" ", item.Name, item.GetValue(m_conf, null)));
+                    else if (item.PropertyType.Equals(typeof(bool)))
+                    {
+                        if ((bool)item.GetValue(m_conf, null) == true)
+                            sb.Append("-" + item.Name + " ");
+                    }
+                    else
+                        sb.Append(string.Format("-{0} {1} ", item.Name, item.GetValue(m_conf, null)));
                 }
 
                 string sParamer = sb.ToString();
@@ -71,7 +79,11 @@ namespace LightKcpClient
                 p.StartInfo.FileName = "client_windows_amd64.exe";
                 p.StartInfo.Arguments = sParamer;
                 p.StartInfo.CreateNoWindow = true;
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                 p.Start();
+
+                this.btnStart.Enabled = false;
+                this.btnStop.Enabled = true;
             }
             catch 
             {
@@ -88,11 +100,15 @@ namespace LightKcpClient
         {
             try
             {
-                foreach (var item in Process.GetProcesses("client_windows_amd64.exe"))
+                this.btnStart.Enabled = true;
+                this.btnStop.Enabled = false;
+
+                foreach (var item in Process.GetProcessesByName("client_windows_amd64"))
                 {
                     try
                     {
                         item.Kill();
+                        item.WaitForExit(1000);
                     }
                     catch
                     {
@@ -102,6 +118,56 @@ namespace LightKcpClient
             catch 
             {
             }
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            tsiStart.Enabled = btnStart.Enabled;
+            tsiStop.Enabled = btnStop.Enabled;
+        }
+
+        private void frm_Main_SizeChanged(object sender, EventArgs e)
+        {
+            if (this.WindowState== FormWindowState.Minimized)
+            {
+                this.Hide();
+                this.notifyIcon1.Visible = true;
+            }
+        }
+
+        private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button== MouseButtons.Right)
+            {
+                this.contextMenuStrip1.Show();
+            }
+        }
+
+        private void notifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+            
+        }
+
+        private void frm_Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            btnStop_Click(null, null);
+        }
+
+        private void tsiStart_Click(object sender, EventArgs e)
+        {
+            btnStart_Click(null, null);
+        }
+
+        private void tsiStop_Click(object sender, EventArgs e)
+        {
+            btnStop_Click(null, null);
+        }
+
+        private void tsiExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 

@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Main));
             this.txtIP = new System.Windows.Forms.TextBox();
             this.btnStart = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,6 +41,12 @@
             this.txtKcpPort = new System.Windows.Forms.TextBox();
             this.txtPwd = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsiStart = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsiStop = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsiExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtIP
@@ -55,6 +63,7 @@
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 1;
+            this.btnStart.TabStop = false;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
@@ -71,10 +80,12 @@
             // btnStop
             // 
             this.btnStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnStop.Enabled = false;
             this.btnStop.Location = new System.Drawing.Point(293, 93);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(75, 23);
             this.btnStop.TabIndex = 4;
+            this.btnStop.TabStop = false;
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = true;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
@@ -86,6 +97,7 @@
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Size = new System.Drawing.Size(75, 23);
             this.btnSetting.TabIndex = 5;
+            this.btnSetting.TabStop = false;
             this.btnSetting.Text = "Setting";
             this.btnSetting.UseVisualStyleBackColor = true;
             this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
@@ -113,14 +125,14 @@
             this.txtPort.Location = new System.Drawing.Point(260, 22);
             this.txtPort.Name = "txtPort";
             this.txtPort.Size = new System.Drawing.Size(100, 21);
-            this.txtPort.TabIndex = 8;
+            this.txtPort.TabIndex = 1;
             // 
             // txtKcpPort
             // 
             this.txtKcpPort.Location = new System.Drawing.Point(71, 58);
             this.txtKcpPort.Name = "txtKcpPort";
             this.txtKcpPort.Size = new System.Drawing.Size(100, 21);
-            this.txtKcpPort.TabIndex = 9;
+            this.txtKcpPort.TabIndex = 2;
             // 
             // txtPwd
             // 
@@ -128,7 +140,7 @@
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '●';
             this.txtPwd.Size = new System.Drawing.Size(100, 21);
-            this.txtPwd.TabIndex = 11;
+            this.txtPwd.TabIndex = 3;
             // 
             // label4
             // 
@@ -138,6 +150,46 @@
             this.label4.Size = new System.Drawing.Size(59, 12);
             this.label4.TabIndex = 10;
             this.label4.Text = "Password:";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsiStart,
+            this.tsiStop,
+            this.tsiExit});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 92);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // tsiStart
+            // 
+            this.tsiStart.Name = "tsiStart";
+            this.tsiStart.Size = new System.Drawing.Size(152, 22);
+            this.tsiStart.Text = "Start";
+            this.tsiStart.Click += new System.EventHandler(this.tsiStart_Click);
+            // 
+            // tsiStop
+            // 
+            this.tsiStop.Name = "tsiStop";
+            this.tsiStop.Size = new System.Drawing.Size(152, 22);
+            this.tsiStop.Text = "Stop";
+            this.tsiStop.Click += new System.EventHandler(this.tsiStop_Click);
+            // 
+            // tsiExit
+            // 
+            this.tsiExit.Name = "tsiExit";
+            this.tsiExit.Size = new System.Drawing.Size(152, 22);
+            this.tsiExit.Text = "Exit";
+            this.tsiExit.Click += new System.EventHandler(this.tsiExit_Click);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
+            this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseClick);
             // 
             // frm_Main
             // 
@@ -158,8 +210,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frm_Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KcpClient";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_Main_FormClosing);
             this.Load += new System.EventHandler(this.frm_Main_Load);
+            this.SizeChanged += new System.EventHandler(this.frm_Main_SizeChanged);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,6 +234,11 @@
         private System.Windows.Forms.TextBox txtKcpPort;
         private System.Windows.Forms.TextBox txtPwd;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tsiStart;
+        private System.Windows.Forms.ToolStripMenuItem tsiStop;
+        private System.Windows.Forms.ToolStripMenuItem tsiExit;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 
