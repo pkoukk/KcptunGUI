@@ -15,7 +15,7 @@ namespace LightKcpClient
 {
     public partial class frm_Main : Form
     {
-        private Config m_conf;
+        private newConfig m_conf;
 
         public frm_Main()
         {
@@ -173,22 +173,22 @@ namespace LightKcpClient
 
     public static class JsonOperater
     {
-        public static Config ReadJson()
+        public static newConfig ReadJson()
         {
             string sFile = Assembly.GetExecutingAssembly().Location + @"\..\config.json";
             if (!File.Exists(sFile))
-                return new Config();
+                return new newConfig();
 
             string sJson = File.ReadAllText(sFile);
             JavaScriptSerializer ser = new JavaScriptSerializer();
-            Config conf = ser.Deserialize<Config>(sJson);
+            newConfig conf = ser.Deserialize<newConfig>(sJson);
             if (conf == null)
-                conf = new Config();
+                conf = new newConfig();
 
             return conf;
         }
 
-        public static void WriteJson(Config conf)
+        public static void WriteJson(newConfig conf)
         {
             try
             {

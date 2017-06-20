@@ -14,9 +14,9 @@ namespace LightKcpClient
 {
     public partial class frm_Setting : Form
     {
-        private Config m_config;
+        private newConfig m_config;
 
-        public frm_Setting(Config conf)
+        public frm_Setting(newConfig conf)
         {
             InitializeComponent();
             m_config = conf;
@@ -68,7 +68,8 @@ namespace LightKcpClient
 
         public string Vaule { get; set; }
     }
-    public class Config
+
+    public class newConfig
     {
         /// <summary>
         /// 
@@ -90,14 +91,6 @@ namespace LightKcpClient
         /// 
         /// </summary>
         public string mode { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public int conn { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public int autoexpire { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -125,11 +118,7 @@ namespace LightKcpClient
         /// <summary>
         /// 
         /// </summary>
-        public bool nocomp { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public bool acknodelay { get; set; }
+        public string nocomp { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -149,10 +138,15 @@ namespace LightKcpClient
         /// <summary>
         /// 
         /// </summary>
+        public string acknodelay { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public int sockbuf { get; set; }
         /// <summary>
         /// 
         /// </summary>
         public int keepalive { get; set; }
     }
+
 }
