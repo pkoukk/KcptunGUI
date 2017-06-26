@@ -51,17 +51,19 @@
             // 
             // txtIP
             // 
-            this.txtIP.Location = new System.Drawing.Point(71, 19);
+            this.txtIP.Location = new System.Drawing.Point(95, 24);
+            this.txtIP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIP.Name = "txtIP";
-            this.txtIP.Size = new System.Drawing.Size(100, 21);
+            this.txtIP.Size = new System.Drawing.Size(132, 25);
             this.txtIP.TabIndex = 0;
             // 
             // btnStart
             // 
             this.btnStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStart.Location = new System.Drawing.Point(212, 93);
+            this.btnStart.Location = new System.Drawing.Point(283, 116);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.Size = new System.Drawing.Size(100, 29);
             this.btnStart.TabIndex = 1;
             this.btnStart.TabStop = false;
             this.btnStart.Text = "Start";
@@ -71,9 +73,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(42, 22);
+            this.label2.Location = new System.Drawing.Point(56, 28);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(23, 12);
+            this.label2.Size = new System.Drawing.Size(31, 15);
             this.label2.TabIndex = 3;
             this.label2.Text = "IP:";
             // 
@@ -81,9 +84,10 @@
             // 
             this.btnStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnStop.Enabled = false;
-            this.btnStop.Location = new System.Drawing.Point(293, 93);
+            this.btnStop.Location = new System.Drawing.Point(391, 116);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(75, 23);
+            this.btnStop.Size = new System.Drawing.Size(100, 29);
             this.btnStop.TabIndex = 4;
             this.btnStop.TabStop = false;
             this.btnStop.Text = "Stop";
@@ -93,9 +97,10 @@
             // btnSetting
             // 
             this.btnSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSetting.Location = new System.Drawing.Point(12, 93);
+            this.btnSetting.Location = new System.Drawing.Point(16, 116);
+            this.btnSetting.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(75, 23);
+            this.btnSetting.Size = new System.Drawing.Size(100, 29);
             this.btnSetting.TabIndex = 5;
             this.btnSetting.TabStop = false;
             this.btnSetting.Text = "Setting";
@@ -105,80 +110,87 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(195, 22);
+            this.label1.Location = new System.Drawing.Point(260, 28);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 12);
+            this.label1.Size = new System.Drawing.Size(47, 15);
             this.label1.TabIndex = 6;
             this.label1.Text = "Port:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 61);
+            this.label3.Location = new System.Drawing.Point(16, 76);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.Size = new System.Drawing.Size(71, 15);
             this.label3.TabIndex = 7;
             this.label3.Text = "KcpPort:";
             // 
             // txtPort
             // 
-            this.txtPort.Location = new System.Drawing.Point(260, 22);
+            this.txtPort.Location = new System.Drawing.Point(347, 28);
+            this.txtPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPort.Name = "txtPort";
-            this.txtPort.Size = new System.Drawing.Size(100, 21);
+            this.txtPort.Size = new System.Drawing.Size(132, 25);
             this.txtPort.TabIndex = 1;
             // 
             // txtKcpPort
             // 
-            this.txtKcpPort.Location = new System.Drawing.Point(71, 58);
+            this.txtKcpPort.Location = new System.Drawing.Point(95, 72);
+            this.txtKcpPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtKcpPort.Name = "txtKcpPort";
-            this.txtKcpPort.Size = new System.Drawing.Size(100, 21);
+            this.txtKcpPort.Size = new System.Drawing.Size(132, 25);
             this.txtKcpPort.TabIndex = 2;
             // 
             // txtPwd
             // 
-            this.txtPwd.Location = new System.Drawing.Point(260, 58);
+            this.txtPwd.Location = new System.Drawing.Point(347, 72);
+            this.txtPwd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '●';
-            this.txtPwd.Size = new System.Drawing.Size(100, 21);
+            this.txtPwd.Size = new System.Drawing.Size(132, 25);
             this.txtPwd.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(195, 61);
+            this.label4.Location = new System.Drawing.Point(260, 76);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 12);
+            this.label4.Size = new System.Drawing.Size(79, 15);
             this.label4.TabIndex = 10;
             this.label4.Text = "Password:";
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsiStart,
             this.tsiStop,
             this.tsiExit});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(114, 76);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // tsiStart
             // 
             this.tsiStart.Name = "tsiStart";
-            this.tsiStart.Size = new System.Drawing.Size(152, 22);
+            this.tsiStart.Size = new System.Drawing.Size(113, 24);
             this.tsiStart.Text = "Start";
             this.tsiStart.Click += new System.EventHandler(this.tsiStart_Click);
             // 
             // tsiStop
             // 
             this.tsiStop.Name = "tsiStop";
-            this.tsiStop.Size = new System.Drawing.Size(152, 22);
+            this.tsiStop.Size = new System.Drawing.Size(113, 24);
             this.tsiStop.Text = "Stop";
             this.tsiStop.Click += new System.EventHandler(this.tsiStop_Click);
             // 
             // tsiExit
             // 
             this.tsiExit.Name = "tsiExit";
-            this.tsiExit.Size = new System.Drawing.Size(152, 22);
+            this.tsiExit.Size = new System.Drawing.Size(113, 24);
             this.tsiExit.Text = "Exit";
             this.tsiExit.Click += new System.EventHandler(this.tsiExit_Click);
             // 
@@ -186,16 +198,16 @@
             // 
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Text = "KcptunGui";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
             this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseClick);
             // 
             // frm_Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(380, 123);
+            this.ClientSize = new System.Drawing.Size(507, 154);
             this.Controls.Add(this.txtPwd);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtKcpPort);
@@ -208,6 +220,7 @@
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.txtIP);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "frm_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

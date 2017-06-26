@@ -63,7 +63,7 @@ namespace LightKcpClient
                 foreach (var item in m_conf.GetType().GetProperties())
                 {
                     if (item.Name == "key")
-                        sb.Append(string.Format("-{0} \"{1}\" ", item.Name, item.GetValue(m_conf, null)));
+                        sb.Append(string.Format("-{0} {1} ", item.Name, item.GetValue(m_conf, null)));
                     else if (item.PropertyType.Equals(typeof(bool)))
                     {
                         if ((bool)item.GetValue(m_conf, null) == true)

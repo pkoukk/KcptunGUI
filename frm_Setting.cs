@@ -118,7 +118,7 @@ namespace LightKcpClient
         /// <summary>
         /// 
         /// </summary>
-        public string nocomp { get; set; }
+        public bool nocomp { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -138,7 +138,7 @@ namespace LightKcpClient
         /// <summary>
         /// 
         /// </summary>
-        public string acknodelay { get; set; }
+        public bool acknodelay { get; set; }
         /// <summary>
         /// 
         /// </summary>
