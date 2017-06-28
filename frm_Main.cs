@@ -26,8 +26,9 @@ namespace LightKcpClient
         private void frm_Main_Load(object sender, EventArgs e)
         {
             txtPort.Text = m_conf.localaddr == null ? "" : m_conf.localaddr.Replace(":", "");
+            txtPort.Text = m_conf.localaddr?.Replace(":", "");
             txtPwd.Text = m_conf.key;
-            string[] sTemp = m_conf.remoteaddr == null ? null : m_conf.remoteaddr.Split(':');
+            string[] sTemp = m_conf.remoteaddr?.Split(':');
             if (sTemp!=null&&sTemp.Count()==2)
             {
                 txtIP.Text = sTemp[0];
@@ -59,6 +60,7 @@ namespace LightKcpClient
             try
             {
                 WriteToObject();
+                JsonOperater.WriteJson(m_conf);
                 StringBuilder sb = new StringBuilder();
                 foreach (var item in m_conf.GetType().GetProperties())
                 {
