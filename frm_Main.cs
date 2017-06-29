@@ -64,12 +64,15 @@ namespace LightKcpClient
                 StringBuilder sb = new StringBuilder();
                 foreach (var item in m_conf.GetType().GetProperties())
                 {
-                    if (item.Name == "key")
-                        sb.Append(string.Format("-{0} {1} ", item.Name, item.GetValue(m_conf, null)));
-                    else if (item.PropertyType.Equals(typeof(bool)))
+                    if (item.PropertyType.Equals(typeof(bool)))
                     {
                         if ((bool)item.GetValue(m_conf, null) == true)
                             sb.Append("-" + item.Name + " ");
+                    }
+                    else if (item.PropertyType.Equals(typeof(int)))
+                    {
+                        if ((int)item.GetValue(m_conf, null) == 0)
+                            continue;
                     }
                     else
                         sb.Append(string.Format("-{0} {1} ", item.Name, item.GetValue(m_conf, null)));
@@ -195,7 +198,7 @@ namespace LightKcpClient
             try
             {
                 JavaScriptSerializer ser = new JavaScriptSerializer();
-                string sjson = ser.Serialize(ser);
+                string sjson = ser.Serialize(conf);
                 string sFile = Assembly.GetExecutingAssembly().Location + @"\..\config.json";
                 File.WriteAllText(sFile, sjson);
             }
